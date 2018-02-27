@@ -19,7 +19,8 @@ public class Billiards extends JFrame {
 	private Board board;
 
 	// TODO update with number of group label. See practice statement.
-	private final int N_BALL = 2;
+	// HECHO. Grupo nº3 -> 3+3=6
+	private final int N_BALL = 6;
 	private Ball[] balls;
 
 	public Billiards() {
