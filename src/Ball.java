@@ -40,6 +40,13 @@ public class Ball {
 		reflect();
 		
 		//TODO Check postcondition
+		//HECHO
+		
+		assert x < Board.RIGHTBOARD: String.format("Posición[x: (%f)] fuera del tablero por la derecha", x);
+		assert x > Board.LEFTBOARD: String.format("Posición[x: (%f)] fuera del tablero por la izquierda", x);
+		assert y > Board.TOPBOARD: String.format("Posición[y: (%f)] fuera del tablero por  arriba", y);
+		assert y < Board.BOTTOMBOARD: String.format("Posición[y: (%f)] fuera del tablero por  abajo", y);
+		
 	}
 
 	private void reflect() {
