@@ -100,6 +100,35 @@ public class Billiards extends JFrame {
 		}
 	}
 
+	// Clase Hilo
+	protected class Hilo implements Runnable{
+		private Ball miBola;
+		
+		public Hilo (Ball bola){
+			miBola = bola;
+		}
+		
+		@Override
+		public void run(){
+			boolean continua = true;
+			try{
+				while (continua) {
+					miBola.move();
+					board.setBalls(balls);
+					// funciona con reparint() y updateUI() de JPanel
+					// refresca el panel para apreciar el movimiento
+					board.repaint();
+					//board.updateUI();
+					Thread.sleep(30);
+				}
+			} catch (InterruptedException e){
+				continua = false; // no sería necesario porque saldrá con return
+				return;
+			}
+		}
+	}
+	
+	
 	public static void main(String[] args) {
 		new Billiards();
 	}
