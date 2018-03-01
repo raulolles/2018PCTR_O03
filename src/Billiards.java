@@ -23,6 +23,10 @@ public class Billiards extends JFrame {
 	private final int N_BALL = 6;
 	private Ball[] balls;
 
+	// Incluido
+	protected Thread[] hilos;
+	private Boolean isRunning = false;
+	
 	public Billiards() {
 
 		board = new Board();
@@ -61,7 +65,16 @@ public class Billiards extends JFrame {
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
 			// TODO Code is executed when start button is pushed
-
+			// HECHO
+			if (!isRunning){
+				board.setBalls(balls);
+				hilos = new Thread[N_BALL];
+				for(int i=0; i<N_BALL; i++){
+					hilos[i] = new Thread(new Hilo(balls[i]));
+					hilos[i].start();
+				}
+				isRunning = true;
+			}
 		}
 	}
 
